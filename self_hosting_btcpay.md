@@ -61,7 +61,7 @@ The following steps are specific to AVM FritzBox. However, you only need to enab
     * Look for the IPv6 address and make sure that the last 4 fields match the ones in the "IPv6 interface ID"
     * [*IPv6*] **IMPORTANT**: Look out for the letters **ff:fe** in the middle of the interface ID. If they are there, it means that your node uses an EUI-64 IPv6 address generated from the MAC address of your ethernet card. Meaning: the interface-ID does not change, which is what we want! 
 
-    * [*IPv6*] Desktop operating systems such as Ubuntu desktop, windows, etc. use so-called privacy extensions that generate random inferface-IDs every time you reboot the PC. In this case, you need to enable EUI-64, but be aware that this will make it very easy to track your activity if you use ypur node for browsing the web. <p align="center"><img width="50%" src="images/btcpay_network_settings2.png"></p>
+    * [*IPv6*] Desktop operating systems such as Ubuntu desktop, windows, etc. use so-called privacy extensions that generate random inferface-IDs every time you reboot the PC. In this case, you need to enable EUI-64 manually, but be aware that this will make it very easy to track your activity if you use your node for browsing the web. <p align="center"><img width="50%" src="images/btcpay_network_settings2.png"></p>
 
     * In the field "Further Device Information, you will find your nodes **MAC address**. Note this down, we will need it later.
 
