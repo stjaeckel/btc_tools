@@ -65,7 +65,7 @@ The following steps are specific to AVM FritzBox. However, you only need to enab
 
     * In the field "Further Device Information, you will find your nodes **MAC address**. Note this down, we will need it later.
 
-4.  Go back to the main screen and go to "Internet - Permit Access - **Port Sharing**" Configure the following port forwards. Note that HTTP is only active for IPv4, but not IPv6. The reason is that IPv6 does not support network address translation and port 80 is already used by the node. We will only the IPv4 port 1080 to redirect to HTTPS. I would not recommend any other port forwards, such as SSH, since this creates an attack surface on your node. If you need to log in from the outside, you van use a private VPN connection such as Wireguard.
+4.  Go back to the main screen and go to "Internet - Permit Access - **Port Sharing**" Configure the following port forwards. Note that HTTP is only active for IPv4, but not IPv6. The reason is that IPv6 does not support network address translation and port 80 is already used by the node. We will only use IPv4 port 1080 to redirect to HTTPS. I would not recommend any other port forwards, such as SSH, since this creates an attack surface on your node. If you need to log in from the outside, you van use a private VPN connection such as Wireguard.
     * **bitcoin** - Protocol TCP, IPv4 and IPv6, Device port 8333, External port 8333
     * **HTTPS-Server** - Protocol TCP, IPv4 and IPv6, Device port 443, External port 443
     * **HTTP-Server** - Protocol TCP, **IPv4 only**, Device port 1080, External port 80
