@@ -193,7 +193,7 @@ server {
 9. Restart nginx by ``sudo systemctl restart nginx``
 10. Open your browser and access your subdomain. You should get a HTTPS encrypted connection to your BTCpay server.
 
-However, there is an issue with Umbrel, that needs an additional step to work (see https://github.com/getumbrel/umbrel/issues/1428). Essentially, the btcpay Docker container in Umbreal comes with its own nginx server. So now, we have two chained nginx servers. This confuses BTCPay server and it refuses to work propertly. The solution is to tell BTCPay at trust the new nginx server. After Umbrel v0.5.1, you will need to add a small configuration change to BTCPay:
+However, there is an issue with Umbrel, that needs an additional step to work (see https://github.com/getumbrel/umbrel/issues/1428). Essentially, the btcpay Docker container in Umbreal comes with its own nginx server. So now, we have two chained nginx servers. This confuses BTCPay server and it refuses to work propertly. The solution is to tell BTCPay to trust the new nginx server. After Umbrel v0.5.1, you will need to add a small configuration change to BTCPay:
 
 11. [Umrel only]: Add a file to your BTCPay configuration ``sudo nano ~/umbrel/app-data/btcpay-server/.env.app_proxy``. Add the following line:
 ```
