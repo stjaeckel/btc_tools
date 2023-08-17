@@ -1,14 +1,10 @@
 import socket
 import requests
 import datetime
-import smtplib
 import subprocess
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 
 domain = '[YOUR dynv6 DOMAIN]'
 token = '[YOUR dynv6 TOKEN]'
-notify_email = '[An email address]'
     
 def get_ipv6_address():
     # It's a general-purpose method to get a network's IP address
@@ -17,7 +13,6 @@ def get_ipv6_address():
         return [ip for ip in socket.getaddrinfo(socket.gethostname(), None, family=socket.AF_INET6) if '%' not in ip[4][0]][0][4][0]
     except (socket.gaierror, IndexError):
         return None
-
 
 def get_external_ipv4_address():
     try:
@@ -99,31 +94,6 @@ def main():
             important_update = True
 
     body += f'IPv6 status:           {result}'
-
-    if important_update == True:
-        # set up the SMTP server
-        smtp_server = "smtp.strato.de"
-        port = 587  # for TLS
-        sender_email = "mail@rcane.eu"  # enter your address
-        password = "L-7UKTztcAnaVt9"  # enter your email password
-
-        # set up the message parameters
-        subject = f"DynDNS Update"
-
-        message = MIMEMultipart()
-        message["From"] = sender_email
-        message["To"] = notify_email
-        message["Subject"] = subject
-        message.attach(MIMEText(body, "plain"))
-
-        # send the email
-        with smtplib.SMTP(smtp_server, port) as server:
-            server.starttls()
-            server.login(sender_email, password)
-            server.sendmail(sender_email, notify_email, message.as_string())
-
-        body += f'\nEmail sent!'
-
     print(body)
 
 if __name__ == "__main__":
